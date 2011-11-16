@@ -114,7 +114,7 @@ task 'build:browser', 'rebuild the merged script for inclusion in the browser', 
       if(typeof define === 'function' && define.amd) {
         define(function() { return CoffeeScript });
       } else { root.CoffeeScript = CoffeeScript }
-    }(this));
+    }(exports || this));
   """
   unless process.env.MINIFY is 'false'
     {parser, uglify} = require 'uglify-js'
